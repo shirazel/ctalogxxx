@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- בלי השורה הזו גוגל דרייב חוסם לפעמים את הצגת התמונות -->
+<meta name="referrer" content="no-referrer">
+<title>קטלוג הפעילויות שלנו</title>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--blue:#0181C9;--deep:#0B4F7C;--yellow:#E5E633;--teal:#6BE3D1;--soft:#E6FAF6;--orange:#FA7548;--ink:#303030;--body:#4A4A4A;--muted:#6B6B6B;--line:#DDE7E8;--bg:#F6FAFA;--r:18px}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Assistant','Heebo',Arial,sans-serif;color:var(--body);background:var(--bg);direction:rtl}
+.wrap{max-width:1150px;margin:0 auto;padding:0 20px}
+
+/* כותרת עליונה */
+header{background:var(--teal);position:relative;overflow:hidden;padding:44px 0 34px}
+header:before,header:after{content:'';position:absolute;border-radius:50%}
+header:before{width:240px;height:240px;background:var(--yellow);left:-70px;top:-90px;opacity:.9}
+header:after{width:130px;height:130px;border:14px solid #fff;left:150px;bottom:-70px;opacity:.6}
+header .wrap{position:relative;z-index:1}
+h1{margin:0 0 6px;color:var(--ink);font-size:clamp(32px,5vw,50px);font-weight:800;line-height:1.1}
+.sub{margin:0;color:var(--ink);font-size:19px}
+.tools{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px;align-items:center}
+.tools input{flex:1 1 240px;max-width:340px;font:inherit;font-size:17px;padding:12px 16px;border:0;border-radius:999px;box-shadow:0 2px 8px rgba(11,79,124,.12)}
+.tools input:focus{outline:3px solid var(--deep)}
+.filters{display:flex;gap:8px;flex-wrap:wrap}
+.filters button{font:inherit;font-weight:700;font-size:15px;border:2px solid #fff;background:#fff;color:var(--deep);border-radius:999px;padding:7px 17px;cursor:pointer;transition:background .15s,color .15s}
+.filters button:hover{border-color:var(--deep)}
+.filters button.on{background:var(--deep);border-color:var(--deep);color:#fff}
+
+/* כרטיסים */
+main{padding:34px 0 56px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:24px}
+.card{background:#fff;border-radius:var(--r);box-shadow:0 2px 12px rgba(48,48,48,.08);overflow:hidden;cursor:pointer;display:flex;flex-direction:column;border:0;padding:0;text-align:right;font:inherit;color:inherit;transition:transform .2s,box-shadow .2s;animation:pop .45s both}
+.card:hover,.card:focus-visible{transform:translateY(-5px);box-shadow:0 12px 28px rgba(11,79,124,.18);outline:0}
+@keyframes pop{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.img{aspect-ratio:16/10;width:100%;background:var(--soft) center/cover no-repeat;display:flex;align-items:center;justify-content:center;font-size:72px;font-weight:800;color:#fff;position:relative}
+.img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.img.c0{background-color:#0181C9}.img.c1{background-color:#FA7548}.img.c2{background-color:#0B4F7C}.img.c3{background-color:#2BB8A3}.img.c4{background-color:#C9A700}
+.img.none:after{content:'';position:absolute;width:120px;height:120px;border-radius:50%;border:12px solid rgba(255,255,255,.25);left:-30px;bottom:-40px}
+.card .in{padding:16px 20px 20px;display:flex;flex-direction:column;gap:6px;flex:1}
+.tag{align-self:flex-start;background:var(--soft);color:var(--deep);font-weight:700;font-size:13px;padding:3px 12px;border-radius:999px}
+.card h3{margin:0;color:var(--ink);font-size:22px;line-height:1.25}
+.card p{margin:0;font-size:16px;line-height:1.55}
+.more{margin-top:auto;padding-top:10px;color:var(--blue);font-weight:700;font-size:15px}
+
+/* הודעות */
+.msg{background:#fff;border-right:6px solid var(--blue);border-radius:12px;padding:20px 24px;font-size:18px;line-height:1.6;box-shadow:0 2px 12px rgba(48,48,48,.08)}
+.msg b{color:var(--ink)}
+
+/* כרטיס נפתח */
+dialog{border:0;border-radius:var(--r);padding:0;max-width:640px;width:calc(100% - 32px);box-shadow:0 20px 60px rgba(0,0,0,.3);color:var(--body)}
+dialog::backdrop{background:rgba(11,79,124,.6)}
+dialog[open]{animation:pop .25s both}
+dialog .img{aspect-ratio:16/8}
+dialog .in{padding:24px 28px 30px}
+dialog h2{margin:8px 0 10px;color:var(--ink);font-size:30px;line-height:1.2}
+dialog .full{font-size:18px;line-height:1.7;margin:0;white-space:pre-line}
+.facts{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.fact{background:var(--bg);border-radius:10px;padding:8px 14px;font-size:15px}
+.fact b{display:block;color:var(--muted);font-size:13px;font-weight:600}
+dialog .x{position:absolute;top:12px;left:12px;width:40px;height:40px;border-radius:50%;border:0;background:#fff;font-size:24px;line-height:1;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25);z-index:2}
+footer{text-align:center;font-size:13px;color:var(--muted);padding:20px}
+
+/* כפתור ההרשמה והטופס. הכפתור אפור ולא פעיל עד שיש בקובץ כתובת של סקריפט */
+.reg.off{background:#DDE3E6;color:#87939A}
+.reg{display:inline-block;background:var(--orange);color:var(--ink);font:inherit;font-weight:800;font-size:16px;border-radius:10px;padding:9px 20px;border:0;cursor:pointer}
+.reg:hover{filter:brightness(1.06)}
+.reg:disabled{opacity:.6;cursor:default}
+.card .foot{margin-top:auto;padding-top:12px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.card .foot .more{margin:0;padding:0}
+dialog .reg{font-size:18px;padding:13px 30px;margin-top:22px}
+.form label{display:block;font-weight:700;color:var(--ink);font-size:16px;margin:14px 0 6px}
+.form input{width:100%;font:inherit;font-size:17px;padding:12px 14px;border:2px solid var(--line);border-radius:10px}
+.form input:focus{outline:0;border-color:var(--blue)}
+.form .hint{color:var(--muted);font-weight:400;font-size:14px}
+.form .row{display:flex;gap:16px;align-items:center;margin-top:22px}
+.form .row .reg{margin:0}
+.form .back{background:none;border:0;color:var(--deep);font:inherit;font-weight:700;font-size:16px;cursor:pointer}
+.note{margin:14px 0 0;font-size:16px;color:#B3261E;font-weight:600}
+.done{text-align:center;padding:30px 10px 8px}
+.done .ok{width:76px;height:76px;border-radius:50%;background:var(--teal);margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-size:40px;color:var(--ink);font-weight:800}
+.done h2{margin:0 0 6px}
+</style>
+</head>
+<body>
+<!--
+  קטלוג חי: הדף קורא את הלשונית "פריטים" מגיליון גוגל ומציג כל שורה ככרטיס.
+  העמודות בגיליון: שם, תיאור קצר, תיאור מלא, קטגוריה, קהל יעד, תמונה, מוצג, תאריך
+  כדי שהדף יוכל לקרוא את הגיליון: שיתוף, "כל מי שיש לו את הקישור", צופה.
+-->
+<div id="app"></div>
+<dialog id="dlg"></dialog>
+<footer>© שירה רוט זליקוביץ · lomdot.org</footer>
+<script>
+/* ===== הקישור לגיליון הגוגל: זה מה שמחבר את הקטלוג לגיליון ===== */
+var SHEET_URL = 'https://docs.google.com/spreadsheets/d/1a_yCmokxfGmA2sFucqcoknqwR8Ry7FlrZn3SKHjaqg4/edit';
+
+/* ===== כתובת הסקריפט, שנגמרת ב-exec: זה מה שמחבר את כפתור ההרשמה לגיליון ===== */
+var SCRIPT_URL = '';
+
+var TAB = 'פריטים';
+var TITLE = 'קטלוג הפעילויות שלנו';
+var SUBTITLE = 'לוחצים על כרטיס כדי לקרוא עוד';
+var FILTER_COL = 'קטגוריה';
+
+function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function sheetId(url){var m=String(url).match(/\/d\/([a-zA-Z0-9_-]{20,})/);return m?m[1]:null}
+// יש בקובץ כתובת של סקריפט? רק אז כפתור ההרשמה פעיל
+function hasScript(){return /^https:\/\/script\.google\.com\/.+\/exec/.test(String(SCRIPT_URL).trim())}
+
+// שליחת ההרשמה לסקריפט, באותה שיטה שבה קוראים את הגיליון. הסקריפט עונה אם השורה נכתבה
+function sendToScript(data){
+  return new Promise(function(resolve,reject){
+    var cb='reg'+Date.now(), s=document.createElement('script'), done=false;
+    var t=setTimeout(function(){if(!done){cleanup();reject()}},20000);
+    function cleanup(){done=true;clearTimeout(t);delete window[cb];s.remove()}
+    window[cb]=function(answer){cleanup();resolve(answer)};
+    s.onerror=function(){cleanup();reject()};
+    var q=Object.keys(data).map(function(k){return encodeURIComponent(k)+'='+encodeURIComponent(data[k])}).join('&');
+    s.src=String(SCRIPT_URL).trim()+'?callback='+cb+'&'+q;
+    document.head.appendChild(s);
+  });
+}
+
+// קריאת הגיליון: מוסיפים תגית script, וגוגל קוראת לפונקציה שלנו עם הנתונים
+function readSheet(url){
+  return new Promise(function(resolve,reject){
+    var id=sheetId(url); if(!id){reject();return}
+    var cb='gv'+Date.now(), s=document.createElement('script'), done=false;
+    var t=setTimeout(function(){if(!done){cleanup();reject()}},12000);
+    function cleanup(){done=true;clearTimeout(t);delete window[cb];s.remove()}
+    window[cb]=function(res){cleanup();
+      if(!res||res.status==='error'){reject();return}
+      var cols=res.table.cols.map(function(c){return (c.label||'').trim()});
+      var rows=res.table.rows.map(function(r){var o={};(r.c||[]).forEach(function(cell,i){o[cols[i]]=cell?(cell.f!=null?cell.f:cell.v):''});return o});
+      resolve(rows)};
+    s.onerror=function(){cleanup();reject()};
+    s.src='https://docs.google.com/spreadsheets/d/'+id+'/gviz/tq?headers=1&sheet='+encodeURIComponent(TAB)+'&tqx=responseHandler:'+cb+'&_='+Date.now();
+    document.head.appendChild(s);
+  });
+}
+
+// קישור דרייב רגיל הופך לכתובת שמוצגת כתמונה
+function imgUrl(u){
+  u=String(u||'').trim(); if(!u) return '';
+  var m=u.match(/drive\.google\.com\/(?:file\/d\/|open\?id=|uc\?(?:export=\w+&)?id=)([a-zA-Z0-9_-]+)/);
+  return m?'https://drive.google.com/thumbnail?id='+m[1]+'&sz=w1000':u;
+}
+function pick(o,name){return o[name]!=null?String(o[name]).trim():''}
+
+var all=[], cats=[], active='הכול', query='';
+
+// התמונה של הפריט. אם אין תמונה: רקע צבעוני לפי הקטגוריה, עם האות הראשונה של השם
+function picture(r){
+  var im=imgUrl(pick(r,'תמונה'));
+  if(im) return '<div class="img"><img src="'+esc(im)+'" alt="" referrerpolicy="no-referrer" data-try="0" onerror="retryImg(this)"></div>';
+  var n=Math.max(0,cats.indexOf(pick(r,FILTER_COL)))%5;
+  return '<div class="img none c'+n+'">'+esc(pick(r,'שם').charAt(0))+'</div>';
+}
+
+// דרייב לפעמים לא עונה בניסיון הראשון. מנסים שוב עד שלוש פעמים, ואם לא הצליח מסתירים את התמונה
+function retryImg(el){
+  var n=Number(el.dataset.try||0);
+  if(n>=3){el.style.display='none';return}
+  el.dataset.try=n+1;
+  var base=el.src.replace(/&retry=\d+/,'');
+  setTimeout(function(){el.src=base+'&retry='+(n+1)},700*(n+1));
+}
+
+function frame(inner){
+  document.getElementById('app').innerHTML='<header><div class="wrap"><h1>'+esc(TITLE)+'</h1><p class="sub" id="sub">'+esc(SUBTITLE)+'</p>'+
+    '<div class="tools" id="tools"></div></div></header><main><div class="wrap">'+inner+'</div></main>';
+}
+
+function render(){
+  var list=all.filter(function(r){
+    var okCat=active==='הכול'||pick(r,FILTER_COL)===active;
+    var txt=(pick(r,'שם')+' '+pick(r,'תיאור קצר')+' '+pick(r,'תיאור מלא')).toLowerCase();
+    return okCat&&(!query||txt.indexOf(query.toLowerCase())>=0)});
+  if(!document.getElementById('g')){
+    frame('<div class="grid" id="g"></div>');
+    document.getElementById('tools').innerHTML='<input id="q" type="search" placeholder="חיפוש" aria-label="חיפוש"><div class="filters" id="f"></div>';
+    document.getElementById('q').oninput=function(e){query=e.target.value;render()};
+  }
+  document.getElementById('f').innerHTML=['הכול'].concat(cats).map(function(c){return '<button class="'+(c===active?'on':'')+'">'+esc(c)+'</button>'}).join('');
+  [].forEach.call(document.querySelectorAll('#f button'),function(b){b.onclick=function(){active=b.textContent;render()}});
+  document.getElementById('g').innerHTML=list.length?list.map(function(r,i){
+    var cat=pick(r,FILTER_COL);
+    return '<button class="card" data-i="'+all.indexOf(r)+'" style="animation-delay:'+(i*50)+'ms">'+picture(r)+
+      '<div class="in">'+(cat?'<span class="tag">'+esc(cat)+'</span>':'')+'<h3>'+esc(pick(r,'שם'))+'</h3><p>'+esc(pick(r,'תיאור קצר'))+'</p>'+
+      '<span class="foot"><span class="more">לקריאה נוספת</span><span class="reg'+(hasScript()?'':' off')+'" data-reg="1">להרשמה</span></span></div></button>'}).join('')
+    :'<p class="msg" style="grid-column:1/-1">לא נמצאו פריטים מתאימים.</p>';
+  // לחיצה על "להרשמה" פותחת את הטופס. לחיצה בכל מקום אחר בכרטיס פותחת את ההסבר המלא
+  [].forEach.call(document.querySelectorAll('.card'),function(c){c.onclick=function(e){
+    var r=all[c.dataset.i];
+    if(e.target.closest('[data-reg]')) openForm(r); else openCard(r)}});
+}
+
+// הכרטיס הנפתח: התיאור המלא ופרטים נוספים
+function openCard(r){
+  var d=document.getElementById('dlg'), cat=pick(r,FILTER_COL);
+  var facts=[['קהל יעד',pick(r,'קהל יעד')],['תאריך',pick(r,'תאריך')]].filter(function(f){return f[1]});
+  d.innerHTML='<button class="x" aria-label="סגירה">×</button>'+picture(r)+
+    '<div class="in">'+(cat?'<span class="tag">'+esc(cat)+'</span>':'')+'<h2>'+esc(pick(r,'שם'))+'</h2>'+
+    '<p class="full">'+esc(pick(r,'תיאור מלא')||pick(r,'תיאור קצר'))+'</p>'+
+    (facts.length?'<div class="facts">'+facts.map(function(f){return '<div class="fact"><b>'+f[0]+'</b>'+esc(f[1])+'</div>'}).join('')+'</div>':'')+
+    '<button class="reg'+(hasScript()?'':' off')+'" type="button" id="regbtn">להרשמה</button>'+
+    '</div>';
+  d.querySelector('.x').onclick=function(){d.close()};
+  d.onclick=function(e){if(e.target===d)d.close()};
+  document.getElementById('regbtn').onclick=function(){openForm(r)};
+  if(!d.open) d.showModal();
+}
+
+// טופס ההרשמה: שם, מייל וטלפון. בשליחה הפרטים עוברים לסקריפט, והוא כותב שורה בגיליון
+function openForm(r){
+  var d=document.getElementById('dlg'), item=pick(r,'שם');
+  // אין עדיין כתובת של סקריפט: מסבירים מה חסר, במקום לפתוח טופס שלא נשלח לשום מקום
+  if(!hasScript()){
+    d.innerHTML='<button class="x" aria-label="סגירה">×</button><div class="in"><span class="tag">הרשמה</span><h2>'+esc(item)+'</h2>'+
+      '<p class="full"><b>כפתור ההרשמה עדיין לא מחובר.</b><br>כדי לחבר אותו, מוסיפים לקובץ את כתובת הסקריפט שלכם.</p></div>';
+    d.querySelector('.x').onclick=function(){d.close()};
+    d.onclick=function(e){if(e.target===d)d.close()};
+    if(!d.open) d.showModal();
+    return;
+  }
+  d.innerHTML='<button class="x" aria-label="סגירה">×</button><div class="in"><span class="tag">הרשמה</span><h2>'+esc(item)+'</h2>'+
+    '<form class="form" id="regform">'+
+    '<label for="rn">שם מלא</label><input id="rn" name="name" required autocomplete="name">'+
+    '<label for="re">מייל</label><input id="re" name="email" type="email" required dir="ltr" autocomplete="email">'+
+    '<label for="rp">טלפון <span class="hint">(לא חובה)</span></label><input id="rp" name="phone" type="tel" dir="ltr" autocomplete="tel">'+
+    '<div class="row"><button class="reg" type="submit">שליחה</button><button class="back" type="button">חזרה</button></div>'+
+    '<p class="note" id="regnote" hidden></p></form></div>';
+  d.querySelector('.x').onclick=function(){d.close()};
+  d.onclick=function(e){if(e.target===d)d.close()};
+  d.querySelector('.back').onclick=function(){openCard(r)};
+  var form=document.getElementById('regform'), btn=form.querySelector('.reg'), note=document.getElementById('regnote');
+  function fail(text){note.textContent=text;note.hidden=false;btn.disabled=false;btn.textContent='שליחה'}
+  form.onsubmit=function(e){
+    e.preventDefault();
+    note.hidden=true;btn.disabled=true;btn.textContent='שולחים...';
+    var f=form.elements;
+    sendToScript({item:item,name:f.name.value.trim(),email:f.email.value.trim(),phone:f.phone.value.trim()}).then(function(answer){
+      if(answer&&answer.ok){
+        d.querySelector('.in').innerHTML='<div class="done"><div class="ok">&#10003;</div><h2>נרשמת בהצלחה</h2><p class="full">'+esc(item)+'</p><button class="reg" type="button">סגירה</button></div>';
+        d.querySelector('.done .reg').onclick=function(){d.close()};
+      } else fail((answer&&answer.msg)||'ההרשמה לא נשלחה. נסו שוב.');
+    },function(){fail('ההרשמה לא נשלחה. בדקו שהסקריפט נפרס עם גישה "כל אחד", ושהכתובת בקובץ נגמרת ב-exec.')});
+  };
+  if(!d.open) d.showModal();
+  document.getElementById('rn').focus();
+}
+
+function show(rows){
+  all=rows.filter(function(r){return pick(r,'שם')&&pick(r,'מוצג')!=='לא'});
+  cats=[];
+  all.forEach(function(r){var c=pick(r,FILTER_COL);if(c&&cats.indexOf(c)<0)cats.push(c)});
+  render();
+}
+
+function load(){
+  if(!sheetId(SHEET_URL)){
+    frame('<p class="msg"><b>הקטלוג עדיין לא מחובר לגיליון.</b><br>כדי לחבר אותו, מוסיפים לקובץ את הקישור לגיליון הגוגל שלכם.</p>');
+    return;
+  }
+  frame('<p class="msg">טוענים את הקטלוג...</p>');
+  readSheet(SHEET_URL).then(show,function(){
+    frame('<p class="msg"><b>לא הצלחנו לקרוא את הגיליון.</b><br>פותחים את הגיליון, לוחצים על "שיתוף", ובוחרים "כל מי שיש לו את הקישור" במצב "צופה". אחר כך מרעננים את הדף.<br><b>רואים את זה בתוך הצ׳אט?</b> הורידו את הקובץ ופתחו אותו בכרום.</p>');
+  });
+}
+load();
+</script>
+</body>
+</html>
